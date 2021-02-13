@@ -1,0 +1,28 @@
+language: python
+
+dist: bionic
+
+addons:
+  apt:
+    packages:
+    - git
+
+python:
+  - "2.7"
+
+cache: pip
+
+jobs:
+  include:
+    - stage: stage1
+      script: echo "I am stage 1.1"
+      script: echo "I am stage 1.2"
+    - stage: stage2
+      script: echo "S2.1"
+      script: echo "S2.2"
+    - stage: stage3
+      script: echo "S3" > s3.1
+      script: echo "S3" > s3.2
+    - stage: stage4
+      script: ls
+
